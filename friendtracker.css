@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+html body {
+    /* try to use futura, fall back on nunito */
+    font-family: Futura, Futura-Medium, "Futura Medium", 'Nunito', sans-serif;
+}
+
+h3, .h3 {
+    /* try to use futura, fall back on nunito */
+    font-family: Futura, Futura-Medium, "Futura Medium", 'Nunito', sans-serif;
+}
+
+.navbar-link {
+    visibility: hidden;
+}

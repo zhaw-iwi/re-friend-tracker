@@ -1,0 +1,65 @@
+{
+  "name": "re-friend-tracker",
+  "version": "0.2.22",
+  "description": "Requirements Engineering Friend Tracker",
+  "keywords": [
+    "GUI",
+    "JSON",
+    "REST",
+    "Rapid Application Development",
+    "Rapid Application Manufacturing"
+  ],
+  "homepage": "https://github.com/innovad/path-example/",
+  "bugs": {
+    "url": "https://github.com/innovad/path-example/issues"
+  },
+  "license": "LGPL-3.0",
+  "author": {
+    "name": "Adrian Moser"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/innovad/path-example.git"
+  },
+  "engines": {
+    "node": "7.10.1",
+    "npm": "4.0.5"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "tsc --project server/tsconfig.json && concurrently \"ng serve\" \"nodemon server/server.js\"",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "heroku-postbuild": "tsc --project server/tsconfig.json && ng build"
+  },
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "path-framework": "0.2.22",
+    "pouchdb-core": "6.3.4",
+    "pouchdb-adapter-memory": "6.3.4",
+    "express": "4.15.0"
+  },
+  "devDependencies": {
+    "@angular/cli": "1.7.3",
+    "@angular/compiler-cli": "4.2.5",
+    "@types/jasmine": "2.5.38",
+    "@types/node": "6.0.60",
+    "codelyzer": "2.0.0",
+    "concurrently": "2.2.0",
+    "jasmine-core": "2.5.2",
+    "jasmine-spec-reporter": "3.2.0",
+    "karma": "1.4.1",
+    "karma-chrome-launcher": "2.0.0",
+    "karma-cli": "1.0.1",
+    "karma-jasmine": "1.1.0",
+    "karma-jasmine-html-reporter": "0.2.2",
+    "karma-coverage-istanbul-reporter": "0.2.0",
+    "nodemon": "1.11.0",
+    "protractor": "5.1.0",
+    "ts-node": "2.0.0",
+    "tslint": "4.4.2",
+    "typescript": "2.1.5"
+  }
+}

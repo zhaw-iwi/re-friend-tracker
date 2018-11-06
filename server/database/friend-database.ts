@@ -7,12 +7,12 @@ export class FriendDatabase extends AbstractDatabase {
         return "friend";
     }
 
-    protected getSort() : any[] {
-        return ['familyName', 'firstName'];
+    protected getSort(): any[] {
+        return ["familyName", "firstName"];
     }
 
-    public createPathListEntry(entry:PathListEntry, entity:any) : Promise<PathListEntry> {
-        entry.name = entity.firstName + ' ' + entity.familyName;
+    public createPathListEntry(entry: PathListEntry, entity: any): Promise<PathListEntry> {
+        entry.name = entity.firstName + " " + entity.familyName;
         return super.createPathListEntry(entry, entity);
     }
 }

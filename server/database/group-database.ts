@@ -7,8 +7,8 @@ export class GroupDatabase extends AbstractDatabase {
         return "group";
     }
 
-    protected getSort() : any[] {
-        return ['name'];
+    protected getSort(): any[] {
+        return ["name"];
     }
 
     public createPathListEntry(entry: PathListEntry, entity: any) {

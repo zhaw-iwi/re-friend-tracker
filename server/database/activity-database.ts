@@ -8,10 +8,10 @@ export class ActivityDatabase extends AbstractDatabase {
     }
 
     protected getSort(): any[] {
-        return ['name'];
+        return ["name"];
     }
 
-    public createPathListEntry(entry:PathListEntry, entity:any) {
+    public createPathListEntry(entry: PathListEntry, entity: any) {
         entry.name = entity.name;
         return super.createPathListEntry(entry, entity);
     }

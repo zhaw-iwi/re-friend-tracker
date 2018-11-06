@@ -12,15 +12,15 @@ export class ActivityRestService extends AbstractRestService {
     protected initList() {
         super.initList();
 
-        let service = this;
-        this._app.get('/services/friend/:friendKey/activity', async (req, res) => {
-            let rows = await service.database.list();
-            let friendKey = req.params.friendKey;
-            var result = [];
-            for (let activity of rows) {
+        const service = this;
+        this._app.get("/services/friend/:friendKey/activity", async (req, res) => {
+            const rows = await service.database.list();
+            const friendKey = req.params.friendKey;
+            const result = [];
+            for (const activity of rows) {
                 if (activity.friends) {
-                    for (let friend of activity.friends) {
-                        if (friend == friendKey) {
+                    for (const friend of activity.friends) {
+                        if (friend === friendKey) {
                             result.push(activity);
                             break;
                         }
@@ -30,12 +30,12 @@ export class ActivityRestService extends AbstractRestService {
             return service.database.createPathList(result, res);
         });
 
-        this._app.get('/services/location/:locationKey/activity', async (req, res) => {
-            let rows = await service.database.list();
-            let locationKey = req.params.locationKey;
-            var result = [];
-            for (let activity of rows) {
-                if (activity.location == locationKey) {
+        this._app.get("/services/location/:locationKey/activity", async (req, res) => {
+            const rows = await service.database.list();
+            const locationKey = req.params.locationKey;
+            const result = [];
+            for (const activity of rows) {
+                if (activity.location === locationKey) {
                     result.push(activity);
                     break;
                 }
@@ -48,8 +48,8 @@ export class ActivityRestService extends AbstractRestService {
     protected initRead() {
         super.initRead();
 
-        let service = this;
-        this._app.get('/services/friend/:friendKey/activity/:activityKey', async (req, res) => {
+        const service = this;
+        this._app.get("/services/friend/:friendKey/activity/:activityKey", async (req, res) => {
             // nop
             res.json("true");
         });
@@ -58,14 +58,14 @@ export class ActivityRestService extends AbstractRestService {
     protected initCreate() {
         super.initCreate();
 
-        let service = this;
-        this._app.post('/services/friend/:friendKey/activity', async (req, res) => {
-            let friendKey = req.params.friendKey;
-            let activityKey = req.body.activity;
+        const service = this;
+        this._app.post("/services/friend/:friendKey/activity", async (req, res) => {
+            const friendKey = req.params.friendKey;
+            const activityKey = req.body.activity;
             console.log("post");
             console.log(friendKey);
             console.log(activityKey);
-            let activity = await service.database.read(activityKey);
+            const activity = await service.database.read(activityKey);
             if (!activity.friends) {
                 activity.friends = [];
             }
@@ -79,11 +79,11 @@ export class ActivityRestService extends AbstractRestService {
     protected initUpdate() {
         super.initUpdate();
 
-        let service = this;
-        this._app.put('/services/friend/:friendKey/activity', async (req, res) => {
-            let friendKey = req.params.friendKey;
-            let activityKey = req.body.activity;
-            let activity = await service.database.read(activityKey);
+        const service = this;
+        this._app.put("/services/friend/:friendKey/activity", async (req, res) => {
+            const friendKey = req.params.friendKey;
+            const activityKey = req.body.activity;
+            const activity = await service.database.read(activityKey);
             if (!activity.friends) {
                 activity.friends = [];
             }
@@ -97,17 +97,17 @@ export class ActivityRestService extends AbstractRestService {
     protected initDelete() {
         super.initDelete();
 
-        let service = this;
-        this._app.delete('/services/friend/:friendKey/activity/:activityKey', async (req, res) => {
-            let friendKey = req.params.friendKey;
-            let activityKey = req.params.activityKey;
-            let activity = await service.database.read(activityKey);
+        const service = this;
+        this._app.delete("/services/friend/:friendKey/activity/:activityKey", async (req, res) => {
+            const friendKey = req.params.friendKey;
+            const activityKey = req.params.activityKey;
+            const activity = await service.database.read(activityKey);
             if (!activity.friends) {
                 activity.friends = [];
             }
             activity.friends.pop(friendKey);
             activity.friends = Array.from(new Set(activity.friends)); // unique
-            let result = await service.database.update(activity._id, activity);
+            const result = await service.database.update(activity._id, activity);
             res.json("true");
         });
     }

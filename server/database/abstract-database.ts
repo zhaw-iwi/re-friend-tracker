@@ -4,7 +4,7 @@ import {KeyValueDatabase} from "./key-value-database";
 
 export abstract class AbstractDatabase {
 
-    protected static _database:KeyValueDatabase;
+    protected static _database: KeyValueDatabase;
 
     public static initDatabase() {
         this._database = new KeyValueDatabase();
@@ -14,30 +14,29 @@ export abstract class AbstractDatabase {
 
     protected abstract getSort(): any[];
 
-    public list() : Promise<any> {
-        let service = this;
+    public list(): Promise<any> {
+        const service = this;
         return AbstractDatabase._database.allDocs(service.getEntityName()).then((rows) => {
-            let result: PathListEntry[] = [];
+            const result: PathListEntry[] = [];
 
             // sort
-            let compare = (a, b) => {
-                for (let sort of service.getSort()) {
+            const compare = (a, b) => {
+                for (const sort of service.getSort()) {
                     if (a[sort] < b[sort]) {
                         return -1;
-                    }
-                    else if (a[sort] > b[sort]) {
+                    } else if (a[sort] > b[sort]) {
                         return 1;
                     }
                 }
                 return 0;
-            }
+            };
             rows.sort(compare);
             return rows;
-        })
+        });
     }
 
     public create(data: any): Promise<any> {
-        let service = this;
+        const service = this;
         return AbstractDatabase._database.create(service.getEntityName(), data).then((doc) => {
             doc.key = doc.id;
             delete doc.id;
@@ -58,11 +57,11 @@ export abstract class AbstractDatabase {
     }
 
     public createPathList(rows, res) {
-        let service = this;
-        var promises = [];
-        for (let item of rows) {
-            let entry: PathListEntry = new PathListEntry();
-            let key: PathListKey = new PathListKey();
+        const service = this;
+        const promises = [];
+        for (const item of rows) {
+            const entry: PathListEntry = new PathListEntry();
+            const key: PathListKey = new PathListKey();
             key.key = item._id;
             key.name = service.getEntityName() + "Key";
             entry.key = key;
@@ -82,10 +81,10 @@ export abstract class AbstractDatabase {
         });
     }
 
-    public toComplexKey(...keys: any[]) : any {
-        let complexKey:string = 'complex_';
-        for (let key of keys) {
-            complexKey += '_' + key;
+    public toComplexKey(...keys: any[]): any {
+        let complexKey = "complex_";
+        for (const key of keys) {
+            complexKey += "_" + key;
         }
         return complexKey;
     }

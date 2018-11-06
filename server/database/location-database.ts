@@ -8,7 +8,7 @@ export class LocationDatabase extends AbstractDatabase {
     }
 
     protected getSort(): any[] {
-        return ['name'];
+        return ["name"];
     }
 
     public createPathListEntry(entry: PathListEntry, entity: any): Promise<PathListEntry> {

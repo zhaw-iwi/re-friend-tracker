@@ -1,11 +1,11 @@
 import {Injectable} from "@angular/core";
-import {TranslationService} from "path-framework/app/path-framework/service/translation.service"
+import {TranslationService} from "path-framework/app/path-framework/service/translation.service";
 
 @Injectable()
 export class ExampleTranslationService extends TranslationService {
 
-    protected getTranslation(key:string) : string {
-        let myTranslations = this.createTranslationMap(this.getExampleTranslations());
+    protected getTranslation(key: string): string {
+        const myTranslations = this.createTranslationMap(this.getExampleTranslations());
         // prefer custom translations
         if (myTranslations.get(key) == null) {
             return super.getTranslation(key);
@@ -14,7 +14,7 @@ export class ExampleTranslationService extends TranslationService {
     }
 
     private getExampleTranslations() {
-        let languageCode: string = this.getUserLanguage();
+        const languageCode: string = this.getUserLanguage();
 
         // put additional application translations here
         return {
@@ -43,6 +43,6 @@ export class ExampleTranslationService extends TranslationService {
             "NewGroup" : "New Group",
             "NewLocation" : "New Location",
             "Nickname" : "Nickname"
-        }
+        };
     }
 }

@@ -6,6 +6,6 @@ export class PathListEntry {
     public color: string;
     public icon: string;
     public url: string;
-    public active: boolean = true;
+    public active = true;
     public details: string[] = [];
 }

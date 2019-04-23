@@ -23,7 +23,8 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
-              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/v4-shims.min.css",
               "node_modules/path-framework/styles.css",
               "src/friendtracker.css"
             ],
@@ -77,7 +78,8 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
-              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/v4-shims.min.css",
               "node_modules/path-framework/styles.css",
               "src/friendtracker.css"
             ],

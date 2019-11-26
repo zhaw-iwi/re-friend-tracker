@@ -52,7 +52,7 @@ app.get("/*", function(req, res, next) {
 
 // Path ping request
 app.get("/services/ping", function(req, res) {
-    res.json({ status: "ok", userId : "demo", version: "0.4.5" });
+    res.json({ status: "ok", userId : "demo", version: "0.6.0" });
 });
 
 // Path example entities
@@ -75,5 +75,5 @@ app.get("/", function(req, res) {
 });
 
 app.listen(port, function() {
-    console.log("Path example server running on http://localhost:" + port);
+    console.log("re-friend-tracker server running on http://localhost:" + port);
 });

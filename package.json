@@ -1,6 +1,6 @@
 {
   "name": "re-friend-tracker",
-  "version": "0.4.5",
+  "version": "0.6.0",
   "description": "Requirements Engineering Friend Tracker",
   "keywords": [
     "GUI",
@@ -9,9 +9,9 @@
     "Rapid Application Development",
     "Rapid Application Manufacturing"
   ],
-  "homepage": "https://github.com/innovad/path-example/",
+  "homepage": "https://github.com/zhaw-iwi/re-friend-tracker/",
   "bugs": {
-    "url": "https://github.com/innovad/path-example/issues"
+    "url": "https://github.com/zhaw-iwi/re-friend-tracker/issues"
   },
   "license": "LGPL-3.0",
   "author": {
@@ -19,15 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/innovad/path-example.git"
+    "url": "https://github.com/zhaw-iwi/re-friend-tracker.git"
   },
   "engines": {
-    "node": "10.13.0",
-    "npm": "6.4.1"
+    "node": "12.13.1",
+    "npm": "6.12.1"
   },
   "scripts": {
-    "ng": "ng",
-    "start": "tsc --project server/tsconfig.json && concurrently \"ng serve --host 0.0.0.0\" \"nodemon server/server.js\"",
+    "start": "tsc --project server/tsconfig.json && concurrently \"ng serve\" \"nodemon server/server.js\"",
     "build": "npm run lint && ng build",
     "test": "ng test",
     "lint": "tslint --project .",
@@ -35,31 +34,33 @@
     "heroku-postbuild": "tsc --project server/tsconfig.json && ng build"
   },
   "dependencies": {
-    "body-parser": "1.15.2",
-    "path-framework": "0.5.5",
-    "pouchdb-core": "6.3.4",
-    "pouchdb-adapter-memory": "6.3.4",
-    "express": "4.15.0",
-    "@angular-devkit/build-angular": "0.8.7",
-    "@angular/cli": "6.2.7",
-    "@angular/compiler-cli": "6.1.9",
-    "@types/jasmine": "2.5.38",
+    "body-parser": "1.19.0",
+    "express": "4.17.1",
+    "multer": "1.4.2",
+    "path-framework": "0.6.0-beta.1",
+    "pouchdb-adapter-memory": "7.1.1",
+    "pouchdb-core": "7.1.1",
+    "@angular-devkit/build-angular": "0.803.19",
+    "@angular/cli": "8.3.19",
+    "@angular/compiler-cli": "8.2.14",
+    "@types/jasmine": "3.4.6",
+    "@types/jasminewd2": "2.0.8",
     "@types/node": "6.0.60",
-    "codelyzer": "4.5.0",
-    "concurrently": "2.2.0",
-    "jasmine-core": "2.5.2",
-    "jasmine-spec-reporter": "3.2.0",
-    "karma": "1.4.1",
-    "karma-chrome-launcher": "2.0.0",
-    "karma-cli": "1.0.1",
-    "karma-jasmine": "1.1.0",
-    "karma-jasmine-html-reporter": "0.2.2",
-    "karma-coverage-istanbul-reporter": "0.2.0",
-    "nodemon": "1.18.7",
-    "protractor": "5.1.0",
-    "ts-node": "2.0.0",
-    "tslint": "5.11.0",
-    "tslint-angular": "1.1.2",
-    "typescript": "2.7.2"
+    "concurrently": "5.0.0",
+    "codelyzer": "5.2.0",
+    "jasmine-core": "3.5.0",
+    "jasmine-spec-reporter": "4.2.1",
+    "karma": "4.4.1",
+    "karma-chrome-launcher": "3.1.0",
+    "karma-coverage-istanbul-reporter": "2.1.0",
+    "karma-firefox-launcher": "1.2.0",
+    "karma-jasmine": "1.1.2",
+    "karma-jasmine-html-reporter": "1.4.2",
+    "nodemon": "1.19.4",
+    "protractor": "6.0.0",
+    "ts-node": "8.5.2",
+    "tslint": "5.20.1",
+    "tslint-angular": "3.0.2",
+    "typescript": "3.5.3"
   }
 }

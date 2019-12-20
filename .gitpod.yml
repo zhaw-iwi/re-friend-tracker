@@ -1,5 +1,6 @@
 tasks:
   - init: npm install
+    command: gp open src/app/gui-model/guimodel.ts  
     command: npm run start
 ports:
   - port: 8080

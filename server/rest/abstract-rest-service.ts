@@ -39,7 +39,11 @@ export abstract class AbstractRestService {
     protected initUpdate() {
         this._app.put("/services/" + this._database.getEntityName() + "/:key", async (req, res) => {
             const key: string = req.params.key;
-            const doc = await this._database.update(key, req.body);
+            const oldDoc = await this._database.read(key);
+            Object.keys(req.body).forEach((prop) => {
+                oldDoc[prop] = req.body[prop];
+            });
+            const doc = await this._database.update(key, oldDoc);
             res.json(doc);
         });
     }

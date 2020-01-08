@@ -53,6 +53,11 @@ export class ActivityRestService extends AbstractRestService {
             // nop
             res.json("true");
         });
+
+        this._app.get("/services/activity/:activityKey/friend/:friendKey", async (req, res) => {
+            // nop
+            res.json("true");
+        });
     }
 
     protected initCreate() {
@@ -62,17 +67,13 @@ export class ActivityRestService extends AbstractRestService {
         this._app.post("/services/friend/:friendKey/activity", async (req, res) => {
             const friendKey = req.params.friendKey;
             const activityKey = req.body.activity;
-            console.log("post");
-            console.log(friendKey);
-            console.log(activityKey);
-            const activity = await service.database.read(activityKey);
-            if (!activity.friends) {
-                activity.friends = [];
-            }
-            activity.friends.push(friendKey);
-            activity.friends = Array.from(new Set(activity.friends)); // unique
-            await service.database.update(activity._id, activity);
-            res.json("true");
+            res.json(this.updateFriend(service, activityKey, friendKey));
+        });
+
+        this._app.post("/services/activity/:activityKey/friend", async (req, res) => {
+            const friendKey = req.body.friend;
+            const activityKey = req.params.activityKey;
+            res.json(this.updateFriend(service, activityKey, friendKey));
         });
     }
 
@@ -80,18 +81,28 @@ export class ActivityRestService extends AbstractRestService {
         super.initUpdate();
 
         const service = this;
-        this._app.put("/services/friend/:friendKey/activity", async (req, res) => {
+        this._app.put("/services/friend/:friendKey/activity/:activityKey", async (req, res) => {
             const friendKey = req.params.friendKey;
             const activityKey = req.body.activity;
-            const activity = await service.database.read(activityKey);
-            if (!activity.friends) {
-                activity.friends = [];
-            }
-            activity.friends.push(friendKey);
-            activity.friends = Array.from(new Set(activity.friends)); // unique
-            await service.database.update(activity._id, activity);
-            res.json("true");
+            res.json(this.updateFriend(service, activityKey, friendKey));
         });
+
+        this._app.put("/services/activity/:activityKey/friend/:friendKey", async (req, res) => {
+            const friendKey = req.body.friend;
+            const activityKey = req.params.activityKey;
+            res.json(this.updateFriend(service, activityKey, friendKey));
+        });
+    }
+
+    private async updateFriend(service: ActivityRestService, activityKey, friendKey) {
+        const activity = await service.database.read(activityKey);
+        if (!activity.friends) {
+            activity.friends = [];
+        }
+        activity.friends.push(friendKey);
+        activity.friends = Array.from(new Set(activity.friends)); // unique
+        const result = await service.database.update(activity._id, activity);
+        return result;
     }
 
     protected initDelete() {
@@ -101,15 +112,29 @@ export class ActivityRestService extends AbstractRestService {
         this._app.delete("/services/friend/:friendKey/activity/:activityKey", async (req, res) => {
             const friendKey = req.params.friendKey;
             const activityKey = req.params.activityKey;
-            const activity = await service.database.read(activityKey);
-            if (!activity.friends) {
-                activity.friends = [];
-            }
-            activity.friends.pop(friendKey);
-            activity.friends = Array.from(new Set(activity.friends)); // unique
-            const result = await service.database.update(activity._id, activity);
-            res.json("true");
+            res.json(this.deleteFriendFromActivity(service, activityKey, friendKey));
         });
+
+        this._app.delete("/services/activity/:activityKey/friend/:friendKey", async (req, res) => {
+            const friendKey = req.params.friendKey;
+            const activityKey = req.params.activityKey;
+            res.json(this.deleteFriendFromActivity(service, activityKey, friendKey));
+        });
+    }
+
+    private async deleteFriendFromActivity(service: ActivityRestService, activityKey, friendKey) {
+        const activity = await service.database.read(activityKey);
+        if (!activity.friends) {
+            activity.friends = [];
+        }
+        // remove item from array
+        const index = activity.friends.indexOf(friendKey, 0);
+        if (index > -1) {
+            activity.friends.splice(index, 1);
+        }
+        activity.friends = Array.from(new Set(activity.friends)); // unique
+        const result = await service.database.update(activity._id, activity);
+        return result;
     }
 
 }

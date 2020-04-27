@@ -1,4 +1,4 @@
-[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/from-referrer/#NG_CLI_ANALYTICS=false) 
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](#NG_CLI_ANALYTICS=false/https://gitpod.io/from-referrer/) 
 
 # Path Framework Example
 

@@ -4,5 +4,6 @@ tasks:
   - command: gp open src/app/gui-model/guimodel.ts
 ports:
   - port: 8080
+    onOpen: ignore
   - port: 4200
     onOpen: open-preview

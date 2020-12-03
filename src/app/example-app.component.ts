@@ -49,6 +49,7 @@ export class ExampleAppComponent extends PathAppComponent {
             return "http://127.0.0.1:8080/services";
         } else if (window.location.hostname.indexOf("gitpod.io") !== -1) {
             let gitpodUrl = window.location.href;
+            gitpodUrl = gitpodUrl.replace("/#", "/");
             gitpodUrl = gitpodUrl.replace("https://4200", "https://8080");
             return gitpodUrl + "services";
         }

@@ -1,7 +1,12 @@
 tasks:
   - init: eval $(gp env NG_CLI_ANALYTICS=false) && npm install
     command: npm run start
-  - command: gp open src/app/gui-model/guimodel.ts
+  - command: |
+      WelcomeFile='/workspace/GHCiCode/README.md'
+      # gp open won't work until the IDE GUI is ready
+      until gp open ${WelcomeFile}; do sleep 1; done
+      # Safe to open more files from now on
+      gp open src/app/gui-model/guimodel.ts
 ports:
   - port: 8080
     onOpen: ignore

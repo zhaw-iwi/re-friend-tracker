@@ -10,5 +10,6 @@ tasks:
 ports:
   - port: 8080
     onOpen: ignore
+    visibility: public
   - port: 4200
     onOpen: open-preview

@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: your-app-name    # set this to your application's name
   NODE_VERSION: '18.12.1'             # set this to the node version to use 
 
 jobs:

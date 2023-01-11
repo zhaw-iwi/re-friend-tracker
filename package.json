@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "tsc --project server/tsconfig.json && concurrently \"ng serve --host 0.0.0.0 --disable-host-check\" \"nodemon server/server.js\"",
-    "build": "npm run lint && ng build",
+    "build": "npm run lint && ng build && tsc --project server/tsconfig.json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

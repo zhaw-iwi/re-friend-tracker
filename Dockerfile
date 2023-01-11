@@ -11,4 +11,4 @@ RUN npm install
 
 # Docker Run Command
 EXPOSE 8080
-CMD [ "node", "server/server.js" ]
+CMD [ "node", "/usr/src/app/server/server.js" ]

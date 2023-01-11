@@ -7,12 +7,6 @@ jobs:
       - name: Cloning repository
         uses: actions/checkout@v3
 
-      - name: Building web app
-        uses: azure/appservice-build@v2
-        with:
-          platform: nodejs
-          platform-version: 17 # 18 not yet supported
-
       - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v2
         with:

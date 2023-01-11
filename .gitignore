@@ -5,6 +5,7 @@
 /tmp
 server/**/*.js
 server/**/*.js.map
+.angular
 
 # dependencies
 /node_modules

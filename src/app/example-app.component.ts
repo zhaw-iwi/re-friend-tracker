@@ -24,7 +24,7 @@ export class ExampleAppComponent extends PathAppComponent {
     }
 
     protected getFrontendVersion(): string {
-        return "0.6.2";
+        return "0.7.0";
     }
 
     protected getStartPage(): string {
@@ -35,7 +35,7 @@ export class ExampleAppComponent extends PathAppComponent {
         return "UserForm";
     }
 
-    protected getGuiModel() {
+    public getGuiModel() {
         if (this._appConfig != null) {
             return this._appConfig.guiModel;
         }

@@ -14,7 +14,7 @@ jobs:
           platform-version: 17 # 18 not yet supported
 
       - name: 'Deploy to Azure WebApp'
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v1
         with:
           app-name: ${{secrets.AZURE_WEBAPP_NAME}}
           publish-profile: ${{secrets.AZURE_WEB_APP_PUBLISH_PROFILE}}

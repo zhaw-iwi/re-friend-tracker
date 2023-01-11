@@ -3,7 +3,7 @@ name: azure docker deployment
 on:
   push:
     branches:
-      - 'main'
+      - 'master'
 
 jobs:
   docker:

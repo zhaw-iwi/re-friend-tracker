@@ -13,5 +13,4 @@ ports:
     visibility: public
   - port: 4200
     onOpen: open-preview
-image:
-  file: .gitpod.Dockerfile
+image: node:18.12.1

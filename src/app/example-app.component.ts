@@ -51,6 +51,10 @@ export class ExampleAppComponent extends PathAppComponent {
             let gitpodUrl = window.location.origin + "/";
             gitpodUrl = gitpodUrl.replace("https://4200", "https://8080");
             return gitpodUrl + "services";
+        } else if (window.location.hostname.indexOf("github.dev") !== -1) {
+            let gitpodUrl = window.location.origin + "/";
+            gitpodUrl = gitpodUrl.replace("-4200", "-8080");
+            return gitpodUrl + "services";
         }
         let url: string = window.location.href;
         url = url.replace("/#", "");

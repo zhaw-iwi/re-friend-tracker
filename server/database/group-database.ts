@@ -1,5 +1,5 @@
 import {AbstractDatabase} from "./abstract-database";
-import {PathListEntry} from "../data/path-list-entry";
+import {PathButton} from "../data/path-button";
 
 export class GroupDatabase extends AbstractDatabase {
 
@@ -11,9 +11,13 @@ export class GroupDatabase extends AbstractDatabase {
         return ["name"];
     }
 
-    public createPathListEntry(entry: PathListEntry, entity: any) {
+    public getSearchAttributes(): any[] {
+        return ["name"];
+    }
+
+    public createPathButton(entry: PathButton, entity: any) {
         entry.name = entity.name;
-            return super.createPathListEntry(entry, entity);
+            return super.createPathButton(entry, entity);
     }
 
 }

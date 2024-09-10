@@ -25,7 +25,7 @@ export class FriendRestService extends AbstractRestService {
                     }
                 }
             }
-            return service.database.createPathList(result, res);
+            return service.database.createPathButtonList(result, res);
         });
     }
 

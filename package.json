@@ -1,11 +1,12 @@
 {
   "name": "re-friend-tracker",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Requirements Engineering Friend Tracker",
   "keywords": [
     "GUI",
     "JSON",
     "REST",
+    "Low Code Framework",
     "Rapid Application Development",
     "Rapid Application Manufacturing"
   ],
@@ -20,48 +21,26 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/zhaw-iwi/re-friend-tracker.git"
-  },
+},
   "engines": {
-    "node": "18.12.1",
-    "npm": "8.19.2"
+    "node": "^20",
+    "npm": "^10"
   },
   "scripts": {
-    "start": "tsc --project server/tsconfig.json && concurrently \"ng serve --host 0.0.0.0 --disable-host-check\" \"nodemon server/server.js\"",
-    "build": "npm run lint && ng build && tsc --project server/tsconfig.json",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "heroku-postbuild": "tsc --project server/tsconfig.json && ng build"
+    "start": "npm run build && nodemon dist/server/server.js",
+    "build": "tsc --project server/tsconfig.json"
   },
   "dependencies": {
-    "express": "4.17.1",
-    "multer": "1.4.2",
-    "path-framework": "0.7.0-beta.13",
-    "pouchdb-adapter-memory": "7.1.1",
-    "pouchdb-core": "7.1.1",
-    "@angular-devkit/build-angular": "13.3.0",
-    "@angular-eslint/builder": "13.1.0",
-    "@angular-eslint/eslint-plugin": "13.1.0",
-    "@angular-eslint/eslint-plugin-template": "13.1.0",
-    "@angular-eslint/schematics": "13.1.0",
-    "@angular-eslint/template-parser": "13.1.0",
-    "@angular/cli": "13.3.0",
-    "@types/jasmine": "3.6.0",
-    "@types/jasminewd2": "2.0.8",
-    "@typescript-eslint/eslint-plugin": "5.17.0",
-    "@typescript-eslint/parser": "5.17.0",
-    "concurrently": "5.0.0",
-    "eslint": "7.21.0",
-    "jasmine-core": "3.6.0",
-    "jasmine-spec-reporter": "5.0.0",
-    "karma": "6.3.17",
-    "karma-chrome-launcher": "3.1.0",
-    "karma-coverage-istanbul-reporter": "3.0.2",
-    "karma-firefox-launcher": "1.2.0",
-    "karma-jasmine": "4.0.0",
-    "karma-jasmine-html-reporter": "1.5.0",
-    "nodemon": "1.19.4",
-    "protractor": "7.0.0",
-    "typescript": "4.6.3"
+    "express": "4.19.2",
+    "multer": "1.4.5-lts.1",
+    "path-framework": "0.8.0-beta.6",
+    "pouchdb-adapter-memory": "9.0.0",
+    "pouchdb-core": "9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.5.4",
+    "body-parser": "1.20.2",
+    "nodemon": "3.1.4",
+    "typescript": "5.4.2"
   }
 }

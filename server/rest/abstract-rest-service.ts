@@ -16,9 +16,28 @@ export abstract class AbstractRestService {
     protected initList() {
         const service = this;
         this._app.get("/services/" + service._database.getEntityName() + "", async (req, res) => {
-            const rows = await service._database.list();
-            this._database.createPathList(rows, res);
+            let rows = await service._database.list();
+            if (req.query.search) {
+                rows = this.filter(rows, req.query.search, service._database.getSearchAttributes());
+            }
+            this._database.createPathButtonList(rows, res).catch((error: any) => console.log(error));
         });
+    }
+
+    protected filter(list, searchText: string, searchAttributes: string[]) {
+        searchText = searchText.toLowerCase();
+        const matches = [];
+        for (const element of list) {
+            for (const key of searchAttributes) {
+                if (element[key]) {
+                    const value = element[key].toLowerCase();
+                    if (value.indexOf(searchText) > -1) {
+                        matches.push(element);
+                    }
+                }
+            }
+        }
+        return matches;
     }
 
     protected initCreate() {
@@ -31,19 +50,20 @@ export abstract class AbstractRestService {
     protected initRead() {
         this._app.get("/services/" + this._database.getEntityName() + "/:key", async (req, res) => {
             const key: string = req.params.key;
-            const doc = await this._database.read(key);
-            res.json(doc);
+            if (key !== "null") {
+                const doc = await this._database.read(key);
+                res.json(doc);
+            } else {
+                const doc = await this._database.prepareCreate();
+                res.json(doc);
+            }
         });
     }
 
     protected initUpdate() {
         this._app.put("/services/" + this._database.getEntityName() + "/:key", async (req, res) => {
             const key: string = req.params.key;
-            const oldDoc = await this._database.read(key);
-            Object.keys(req.body).forEach((prop) => {
-                oldDoc[prop] = req.body[prop];
-            });
-            const doc = await this._database.update(key, oldDoc);
+            const doc = await this._database.update(key, req.body);
             res.json(doc);
         });
     }

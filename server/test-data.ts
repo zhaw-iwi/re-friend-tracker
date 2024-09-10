@@ -38,14 +38,14 @@ export class TestData {
                     location: locations[0].key,
                     birthdate: birthdate1
                 }));
-                promises.push(personDatabase.create({
+        promises.push(personDatabase.create({
                     firstName: "Betty",
                     familyName: "Beaver",
                     nickname: "Betty",
                     location: locations[2].key,
                     birthdate: birthdate2
                 }));
-                promises.push(personDatabase.create({
+        promises.push(personDatabase.create({
                     firstName: "Chris",
                     familyName: "Connor",
                     nickname: "Con",
@@ -101,6 +101,6 @@ export class TestData {
             }
         );
 
-    }
+            }
 
 }

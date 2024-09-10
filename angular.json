@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "re-friend-tracker": {
+    "path-example": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -26,7 +26,7 @@
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/v4-shims.min.css",
               "node_modules/path-framework/styles.css",
-              "src/friendtracker.css"
+              "src/path-example.css"
             ],
             "scripts": []
           },
@@ -53,18 +53,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "re-friend-tracker:build"
+            "browserTarget": "path-example:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "re-friend-tracker:build:production"
+              "browserTarget": "path-example:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "re-friend-tracker:build"
+            "browserTarget": "path-example:build"
           }
         },
         "test": {
@@ -78,10 +78,9 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
-              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-              "node_modules/@fortawesome/fontawesome-free/css/v4-shims.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
               "node_modules/path-framework/styles.css",
-              "src/friendtracker.css"
+              "src/path-example.css"
             ],
             "assets": [
               "src/assets",
@@ -97,10 +96,10 @@
               "src/**/*.html"
             ]
           }
-        }
+        }      
       }
     },
-    "re-friend-tracker-e2e": {
+    "path-example-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -109,7 +108,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "re-friend-tracker:serve"
+            "devServerTarget": "path-example:serve"
           }
         },
         "lint": {
@@ -120,11 +119,14 @@
               "src/**/*.html"
             ]
           }
-        }
+        }      
       }
     }
   },
-  "defaultProject": "re-friend-tracker",
+  "defaultProject": "path-example",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  },
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

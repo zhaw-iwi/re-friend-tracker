@@ -1,6 +1,6 @@
 import {AbstractRestService} from "./abstract-rest-service";
-import {PathListKey} from "../data/path-list-key";
-import {PathListEntry} from "../data/path-list-entry";
+import {PathKey} from "../data/path-key";
+import {PathButton} from "../data/path-button";
 import {ActivityDatabase} from "../database/activity-database";
 
 export class ActivityRestService extends AbstractRestService {
@@ -27,7 +27,7 @@ export class ActivityRestService extends AbstractRestService {
                     }
                 }
             }
-            return service.database.createPathList(result, res);
+            return service.database.createPathButtonList(result, res);
         });
 
         this._app.get("/services/location/:locationKey/activity", async (req, res) => {
@@ -40,7 +40,7 @@ export class ActivityRestService extends AbstractRestService {
                     break;
                 }
             }
-            return service.database.createPathList(result, res);
+            return service.database.createPathButtonList(result, res);
         });
 
     }

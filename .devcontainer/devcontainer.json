@@ -5,5 +5,5 @@
 		"dockerfile": "../Dockerfile",
 	},
 	"forwardPorts": [8080],
-	"postCreateCommand": "npm install && npm run start"
+	"postCreateCommand": "npm run start"
 }

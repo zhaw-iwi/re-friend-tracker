@@ -1,0 +1,9 @@
+{
+	"name": "Path Codespace",
+	"build": {
+		"context": "..",
+		"dockerfile": "../Dockerfile",
+	},
+	"forwardPorts": [8080],
+	"postCreateCommand": "npm install && npm run start"
+}

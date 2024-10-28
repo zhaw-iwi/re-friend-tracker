@@ -15,7 +15,7 @@
     frontend-version="0.8.0" start-page="mainmenu" current-user-form="UserForm"></path-framework>
   <script>
     var resultUrl = "<unknown>";
-    var url = window.location.href;
+    var url = window.location.protocol + "//" + window.location.host;
     url = url.replace("/#", "");
     if (url.endsWith("/")) {
       resultUrl = url + "services";

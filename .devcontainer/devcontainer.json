@@ -1,9 +1,6 @@
 {
-	"name": "Path Codespace",
-	"build": {
-		"context": "..",
-		"dockerfile": "../Dockerfile",
-	},
+	"name": "Node.js & TypeScript",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
 	"forwardPorts": [8080],
-	"postCreateCommand": "npm run start"
+	"postCreateCommand": "npm install & npm run start"
 }

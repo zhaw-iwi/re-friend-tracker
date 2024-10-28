@@ -23,8 +23,8 @@
     "url": "https://github.com/zhaw-iwi/re-friend-tracker.git"
 },
   "engines": {
-    "node": "^20",
-    "npm": "^10"
+    "node": ">=20",
+    "npm": ">=10"
   },
   "scripts": {
     "start": "npm run build && nodemon dist/server/server.js",

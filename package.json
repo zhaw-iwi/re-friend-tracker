@@ -21,13 +21,14 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/zhaw-iwi/re-friend-tracker.git"
-},
+  },
   "engines": {
     "node": ">=20",
     "npm": ">=10"
   },
   "scripts": {
     "start": "npm run build && nodemon dist/server/server.js",
+    "dev": "browser-sync start --config bs-config.js",
     "build": "tsc --project server/tsconfig.json"
   },
   "dependencies": {
@@ -40,6 +41,7 @@
   "devDependencies": {
     "@types/node": "22.5.4",
     "body-parser": "1.20.2",
+    "browser-sync": "3.0.3",
     "nodemon": "3.1.4",
     "typescript": "5.4.2"
   }

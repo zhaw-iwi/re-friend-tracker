@@ -5,11 +5,19 @@
 		8080
 	],
 	"postCreateCommand": "npm install && npm run start",
-	"postStartCommand": "npm install && npm run start",
+	"postStartCommand": [
+		"npm install && npm run start",
+		"code --command 'simpleBrowser.show' --args 'http://localhost:8080'"
+	],
 	"customizations": {
 		"codespaces": {
 			"openFiles": [
 				"app/model.json"
+			]
+		},
+		"vscode": {
+			"extensions": [
+				"microsoft.simple-browser"
 			]
 		}
 	}

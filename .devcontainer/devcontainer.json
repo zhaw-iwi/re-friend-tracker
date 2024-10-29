@@ -5,6 +5,7 @@
 		8080
 	],
 	"postCreateCommand": "npm install && npm run start",
+	"postStartCommand": "npm install && npm run start",
 	"customizations": {
 		"codespaces": {
 			"openFiles": [

@@ -6,7 +6,7 @@
 		3001,
 		8080
 	],
-	"postCreateCommand": "npm install",
+	"postCreateCommand": "npm install && npm install -g pm2",
 	"postStartCommand": "npm run start",
 	"customizations": {
 		"codespaces": {

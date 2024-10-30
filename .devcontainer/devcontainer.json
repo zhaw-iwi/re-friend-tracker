@@ -2,10 +2,18 @@
 	"name": "Node.js & TypeScript",
 	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
 	"forwardPorts": [
-		3000
+		3000,
+		3001,
+		8080
 	],
-	"postCreateCommand": "npm install && npm run start && npm run watch",
-	"postStartCommand": "npm run start && npm run watch",
+	"postCreateCommand": [
+		"npm install && npm run start",
+		"npm run watch"
+	],
+	"postStartCommand": [
+		"npm run start",
+		"npm run watch"
+	],
 	"customizations": {
 		"codespaces": {
 			"openFiles": [

@@ -6,8 +6,8 @@
 		3001,
 		8080
 	],
-	"postCreateCommand": "npm install && npm install -g pm2",
-	"postStartCommand": "npm run start",
+	"postCreateCommand": "npm install && npm install -g pm2 && npm run build",
+	"postStartCommand": "pm2 start dist/server/server.js --watch && npm run watch",
 	"customizations": {
 		"codespaces": {
 			"openFiles": [

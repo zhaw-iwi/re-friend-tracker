@@ -27,7 +27,7 @@
     "npm": ">=10"
   },
   "scripts": {
-    "start": "npm run build && nodemon dist/server/server.js",
+    "start": "npm run build && nodemon dist/server/server.js && browser-sync start --config bs-config.js",
     "watch": "browser-sync start --config bs-config.js",
     "build": "tsc --project server/tsconfig.json"
   },

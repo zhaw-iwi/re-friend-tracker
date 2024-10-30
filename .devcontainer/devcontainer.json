@@ -4,8 +4,8 @@
 	"forwardPorts": [
 		3000
 	],
-	"postCreateCommand": "npm install && npm run watch",
-	"postStartCommand": "npm run watch",
+	"postCreateCommand": "npm install && npm run start && npm run watch",
+	"postStartCommand": "npm run start && npm run watch",
 	"customizations": {
 		"codespaces": {
 			"openFiles": [

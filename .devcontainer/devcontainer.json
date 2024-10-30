@@ -6,13 +6,8 @@
 		3001,
 		8080
 	],
-	"postCreateCommand": [
-		"npm install > /tmp/postCreateCommand.log 2>&1"
-	],
-	"postStartCommand": [
-		"npm run start > /tmp/postStartCommand1.log 2>&1",
-		"npm run watch > /tmp/postStartCommand2.log 2>&1"
-	],
+	"postCreateCommand": "npm install",
+	"postStartCommand": "npm run start",
 	"customizations": {
 		"codespaces": {
 			"openFiles": [

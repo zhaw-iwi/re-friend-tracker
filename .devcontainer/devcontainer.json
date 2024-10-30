@@ -2,13 +2,21 @@
 	"name": "Node.js & TypeScript",
 	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
 	"forwardPorts": [
+		3000,
+		3001,
 		8080
 	],
-	"postCreateCommand": "npm install && npm run start",
+	"postCreateCommand": "npm install && npm install -g pm2 && npm run build",
+	"postStartCommand": "pm2 start dist/server/server.js --watch && npm run watch",
 	"customizations": {
 		"codespaces": {
 			"openFiles": [
 				"app/model.json"
+			]
+		},
+		"vscode": {
+			"extensions": [
+				"microsoft.simple-browser"
 			]
 		}
 	}

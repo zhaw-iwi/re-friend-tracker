@@ -7,11 +7,11 @@
 		8080
 	],
 	"postCreateCommand": [
-		"npm install"
+		"npm install > /tmp/postCreateCommand.log 2>&1"
 	],
 	"postStartCommand": [
-		"npm run start",
-		"npm run watch"
+		"npm run start > /tmp/postStartCommand1.log 2>&1",
+		"npm run watch > /tmp/postStartCommand2.log 2>&1"
 	],
 	"customizations": {
 		"codespaces": {

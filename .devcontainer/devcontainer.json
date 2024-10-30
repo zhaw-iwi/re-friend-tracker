@@ -4,10 +4,11 @@
 	"forwardPorts": [
 		8080
 	],
-	"postCreateCommand": "npm install && npm run start",
+	"postCreateCommand": [
+		"npm install && npm run dev"
+	],
 	"postStartCommand": [
-		"npm install && npm run start",
-		"code --command 'simpleBrowser.show' --args 'http://localhost:8080'"
+		"npm run dev"
 	],
 	"customizations": {
 		"codespaces": {

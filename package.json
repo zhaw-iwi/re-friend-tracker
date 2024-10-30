@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "npm run build && nodemon dist/server/server.js",
-    "dev": "browser-sync start --config bs-config.js",
+    "watch": "npm run start && browser-sync start --config bs-config.js",
     "build": "tsc --project server/tsconfig.json"
   },
   "dependencies": {

@@ -1,7 +1,7 @@
 {
     "application": {
         "title": "JasminH Requirements Engineering Friend Tracker (FS2026)",
-        "formList": [
+        "formList": [ 
             {
                 "id": "FriendForm",
                 "title": "Friend",

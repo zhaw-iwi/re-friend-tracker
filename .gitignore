@@ -30,6 +30,8 @@ server/**/*.js.map
 /.sass-cache
 /connect.lock
 /coverage/*
+/playwright-report/
+/test-results/
 /libpeerconnection.log
 npm-debug.log
 testem.log

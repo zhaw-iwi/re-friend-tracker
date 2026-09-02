@@ -10,11 +10,10 @@ import {GroupDatabase} from "./database/group-database";
 import {GroupRestService} from "./rest/group-rest-service";
 import express = require("express");
 
-const bodyParser = require("body-parser");
 const path = require('path');
 const app = express();
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
@@ -25,14 +24,14 @@ process.on("unhandledRejection", (reason, p) => {
 });
 
 // serve Frontend
-app.use("/", [express.static(__dirname + "./../../app")]);
+app.use("/", [express.static(path.join(__dirname, "../../app"))]);
 app.use("/path", [express.static(path.join(__dirname,"./../../node_modules/path-framework"))]);
 
 // setup CORS
 app.all("/*", function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Request-Method", "*");
-    res.header("Access-Control-Allow-Headers", req.header["Access-Control-Request-Headers"]);
+    res.header("Access-Control-Allow-Headers", req.get("Access-Control-Request-Headers") ?? "");
     res.header("Access-Control-Expose-Headers", "Authorization");
     res.type("application/json");
     next();

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "../dist/server",    
-    "target": "es5",
+    "target": "es2022",
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
@@ -11,8 +11,7 @@
     "noImplicitAny": false,
     "skipLibCheck": true,
     "lib": [
-      "es2015.promise",
-      "es2015"
+      "es2022"
     ]
   },
   "exclude": [
